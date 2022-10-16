@@ -4,6 +4,7 @@ import { TreinadorCreateComponent } from './pages/treinador-create/treinador-cre
 import { GenericRouterComponent, TreinadorRoutingModule } from './treinador-routing.module';
 import { TreinadorListComponent } from './pages/treinador-list/treinador-list.component';
 import { FormsModule } from '@angular/forms';
+import { TreinadorAtualizarComponent } from './pages/treinador-atualizar/treinador-atualizar.component';
 
 
 
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
     GenericRouterComponent,
     TreinadorCreateComponent,
     TreinadorListComponent,
+    TreinadorAtualizarComponent,
   ],
   imports: [
     CommonModule,
