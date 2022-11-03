@@ -25,15 +25,16 @@ export class TreinadorService {
 
   atualizarService(treinador: TreinadorDetalhado):
     Promise<TreinadorDetalhado | undefined> {
+      console.log(treinador.id)
     return this.httpClient
-      .put<TreinadorDetalhado>(`http://localhost:8080/api/treinador/${treinador.idTreinador}`, treinador)
+      .put<TreinadorDetalhado>(`http://localhost:8080/api/treinador/${treinador.id}`, treinador)
       .toPromise();
   }
 
-  buscarUmTreinadorService(idTreinador: number):
+  buscarUmTreinadorService(id: number):
     Promise<TreinadorDetalhado | undefined> {
     return this.httpClient
-      .get<TreinadorDetalhado>(`http://localhost:8080/api/treinador/${idTreinador}`)
+      .get<TreinadorDetalhado>(`http://localhost:8080/api/treinador/${id}`)
       .toPromise();
   }
 

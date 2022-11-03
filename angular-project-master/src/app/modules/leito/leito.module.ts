@@ -4,6 +4,7 @@ import { LeitoCreateComponent } from './pages/leito-create/leito-create.componen
 import { GenericRouterComponent, LeitoRoutingModule } from './leito-routing.module';
 import { LeitoListComponent } from './pages/leito-list/leito-list.component';
 import { FormsModule } from '@angular/forms';
+import { LeitoAtualizarComponent } from './pages/leito-atualizar/leito-atualizar.component';
 
 
 
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     GenericRouterComponent,
     LeitoCreateComponent,
-    LeitoListComponent
+    LeitoListComponent,
+    LeitoAtualizarComponent
   ],
   imports: [
     CommonModule,

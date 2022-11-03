@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TreinadorDetalhado } from '../../models/treinador.model';
 import { TreinadorService } from '../../services/treinador.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-treinador-create',
@@ -11,7 +12,8 @@ export class TreinadorCreateComponent implements OnInit {
 
   treinador = {} as TreinadorDetalhado;
   
-  constructor(private treinadorService: TreinadorService) { 
+  constructor(private treinadorService: TreinadorService,
+     private router: Router) { 
     
   }
 
@@ -24,8 +26,8 @@ export class TreinadorCreateComponent implements OnInit {
     .then(result => {
       console.log(`Treinador ${result?.nomeTreinador} cadastrado com sucesso.`);
       this.treinador = {} as TreinadorDetalhado;
-
     });
+    this.router.navigate([`treinador`])
   }
 
   inicioComponente() {

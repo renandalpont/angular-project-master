@@ -2,24 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Filter } from 'src/app/commons/models/filtro.model';
 import { Pagina } from 'src/app/commons/models/page.model';
-import { TreinadorSimples } from '../../models/treinador.model';
-import { TreinadorService } from '../../services/treinador.service';
+import { ProntuarioSimples } from '../../models/prontuario.model';
+import { ProntuarioService } from '../../services/prontuario.service';
 
 @Component({
-  selector: 'app-treinador-list',
-  templateUrl: './treinador-list.component.html',
-  styleUrls: ['./treinador-list.component.scss']
+  selector: 'app-prontuario-list',
+  templateUrl: './prontuario-list.component.html',
+  styleUrls: ['./prontuario-list.component.scss']
 })
-export class TreinadorListComponent implements OnInit {
+export class ProntuarioListComponent implements OnInit {
 
   paginaLista = {} as any//Pagina<TreinadorSimples>;
   contador = 0;
   filtroValue = "";
   filtroKey = "";
   filtroTamanhoPagina = 30;
-  filtroPaginaDesejada = 0;
+  filtroPaginaDesejada = 30;
 
-  constructor(private treinadorService: TreinadorService,
+  constructor(private prontuarioService: ProntuarioService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class TreinadorListComponent implements OnInit {
   }
 
   listarControler(filter?: Filter) {
-    this.treinadorService.listarService(filter)
+    this.prontuarioService.listarService(filter)
       .then(result => {
         this.paginaLista = !!result ? result : {
           conteudo: [],
@@ -44,16 +44,19 @@ export class TreinadorListComponent implements OnInit {
 
   }
 
-  atualizarTreinador(treinador: TreinadorSimples) {
-    this.router.navigate([`treinador/${treinador.id}`])
+  atualizarProntuario(prontuario: ProntuarioSimples) {
+    this.router.navigate([`prontuario/${prontuario.id}`])
   }
 
-  excluirTreinador(treinador: TreinadorSimples) {
-    this.treinadorService.excluirService(treinador.id)
-      .then(() => {
-        this.resetarPagina();
-      })
+  visualizarProntuario(prontuario: ProntuarioSimples) {
+    this.router.navigate([`prontuario/visualizar/${prontuario.id}`])
   }
+  // excluirProntuario(prontuario: ProntuarioSimples) {
+  //   this.prontuarioService.excluirService(prontuario.id)
+  //     .then(() => {
+  //       this.resetarPagina();
+  //     })
+  // }
 
   resetarPagina() {
     this.paginaLista = {
@@ -61,17 +64,18 @@ export class TreinadorListComponent implements OnInit {
       paginaSelecionada: 0,
       proximaPagina: false,
       tamanhoPagina: 30
-    } as Pagina<TreinadorSimples>;
+    } as Pagina<ProntuarioSimples>;
     this.listarControler();
   }
 
-  buscaComFiltro(avanca?: boolean) {  
+  buscaComFiltro(avanca?: boolean) {
+    
     this.paginaLista = {
       conteudo: [],
       paginaSelecionada: 0,
       proximaPagina: false,
       tamanhoPagina: 30
-    } as Pagina<TreinadorSimples>;
+    } as Pagina<ProntuarioSimples>;
 
     const filtroController = {
       key: this.filtroKey,

@@ -11,18 +11,13 @@ import { TreinadorService } from '../../services/treinador.service';
 })
 export class TreinadorAtualizarComponent implements OnInit {
 
-  treinador = {
-    
-  } as TreinadorDetalhado;
+  treinador = { } as TreinadorDetalhado;
 
   constructor(private activedRoute: ActivatedRoute,
     private treinadorService: TreinadorService,
-    private routeNavigate: Router) {
-      
-     }
+    private routeNavigate: Router) { }
 
   ngOnInit(): void {
-    
     const id = this.activedRoute.snapshot.params['id'];
     this.carregaTreinador(id); 
   }
@@ -32,12 +27,12 @@ export class TreinadorAtualizarComponent implements OnInit {
     .then(result => {
       this.treinador = !!result ? result : {} as TreinadorDetalhado;
     })
+    console.log(id)
   }
 
-  salvarController(treinador : TreinadorDetalhado) {
+  salvarController() {
     this.treinadorService.atualizarService(this.treinador)  
     .then(() => {
-      console.log(this.treinador)
       this.routeNavigate.navigate(['treinador/list']);
     })
 

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LeitoCreateComponent } from './pages/leito-create/leito-create.component';
 import { LeitoListComponent } from './pages/leito-list/leito-list.component';
+import { LeitoAtualizarComponent } from './pages/leito-atualizar/leito-atualizar.component';
 
 
 @Component({
@@ -15,7 +16,8 @@ const routes: Routes = [{
   children: [
     { path: 'leito', redirectTo:'leito/list', pathMatch: 'full'},
     { path: 'leito/create', component: LeitoCreateComponent },
-    { path: 'leito/list', component: LeitoListComponent }
+    { path: 'leito/list', component: LeitoListComponent },
+    { path: 'leito/:id', component: LeitoAtualizarComponent }
   ]
 }]
 

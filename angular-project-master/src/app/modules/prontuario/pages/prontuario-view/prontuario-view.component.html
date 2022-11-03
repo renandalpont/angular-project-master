@@ -1,0 +1,47 @@
+<div class="container-xl">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Cadastro <b>Prontuário</b></h2>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl">
+            <form>
+                <div class="header">						
+                    <h4 class="title mt-4">Visualizar Prontuário</h4>
+                </div>
+                <div class="form-group">	
+                    <div class="row">			
+                        <div class="col-12">
+                            <label>Médico</label>
+                            <input type="text" name="nomeMedico" [(ngModel)]="prontuario.nomeMedico" class="form-control" disabled required="">
+                        </div>                                      				
+                        <!-- <div class="col-4">
+                            <label>Tipo de Leito</label>
+                            <select class="form-select" name="leitoTipo" [(ngModel)]="leito.leitoTipo" aria-label="Tipo de Leito">
+                                <option selected>Selecione o Tipo de Leito</option>
+                                <option value="Agua">Agua</option>
+                                <option value="Fogo">Fogo</option>
+                                <option value="Planta">Planta</option>
+                            </select>
+                        </div> -->
+                        
+                        <div class="col-12">
+                            <label>Descrição</label>
+                            <textarea rows="10" cols="50" type="text" name="descricaoProntuario" [(ngModel)]="prontuario.descricaoProntuario" class="form-control" disabled required="">
+                            </textarea>    
+                        </div>
+                    </div>                                    				   
+                </div>
+                <hr class="mt-3">
+                <div class="footer">
+                    <a [routerLink]="'../../list'">
+                        <input type="submit" class="btn btn-success" value="Voltar">
+                    </a>
+                </div>
+            </form>
+    </div>
+</div> 
+

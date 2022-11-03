@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LeitoDetalhado } from '../../models/leito.model';
 import { LeitoService } from '../../services/leito.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leito-create',
@@ -11,7 +12,8 @@ export class LeitoCreateComponent implements OnInit {
 
   leito = {} as LeitoDetalhado;
   
-  constructor(private leitoService: LeitoService) { 
+  constructor(private leitoService: LeitoService,
+            private router: Router) { 
     
   }
 
@@ -20,12 +22,13 @@ export class LeitoCreateComponent implements OnInit {
   }
 
   salvarController() {
+    console.log(this.leito);
     this.leitoService.salvarService(this.leito)
     .then(result => {
-      console.log(`Leito ${result?.leitoNumero} cadastrado com sucesso.`);
+      console.log(`Leito ${result?.numeroLeito} cadastrado com sucesso.`);
       this.leito = {} as LeitoDetalhado;
-
     });
+    this.router.navigate([`leito`])
   }
 
   inicioComponente() {

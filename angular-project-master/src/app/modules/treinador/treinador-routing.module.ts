@@ -17,8 +17,7 @@ const routes: Routes = [{
     { path: 'treinador', redirectTo:'treinador/list', pathMatch: 'full'},
     { path: 'treinador/create', component: TreinadorCreateComponent },
     { path: 'treinador/list', component: TreinadorListComponent },
-    { path: 'treinador/:id', component: TreinadorAtualizarComponent }
-    
+    { path: 'treinador/:id', component: TreinadorAtualizarComponent }    
   ]
 }]
 

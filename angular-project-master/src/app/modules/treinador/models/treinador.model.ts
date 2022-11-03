@@ -1,9 +1,10 @@
  export interface TreinadorDetalhado extends TreinadorSimples {
     endTreinador: string;
+    statusTreinador: string;
  }
 
 export interface TreinadorSimples {
-    idTreinador?: number;
+    id?: number;
     nomeTreinador: string;
     rgTreinador: string;
 }

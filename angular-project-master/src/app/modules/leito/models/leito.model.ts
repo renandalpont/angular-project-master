@@ -1,9 +1,9 @@
 export interface LeitoDetalhado extends LeitoSimples {
-    leitoStatus: boolean;
+    statusLeito: string;
     tipoLeito: string;
 }
 
 export interface LeitoSimples {
     id?: number;
-    leitoNumero: string;
+    numeroLeito: number;
 }

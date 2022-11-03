@@ -1,5 +1,4 @@
 
-
 <div class="container-xl" >
     <div class="table-wrapper">
         <div class="table-title">
@@ -7,9 +6,24 @@
                 <div class="col-sm-9">
                     <h2>Cadastro <b>Treinadores</b></h2>
                 </div>
+                <!-- <div class="col-sm-3">
+                    <input class="form-control col-md-5" *ngIf="filtroKey === 'nome'" type="search" [(ngModel)]="filtroValue"
+                    placeholder="Digite o termo a ser pesquisado" aria-label="Search">
+                </div> -->
                 <div class="col-sm-3">
                     <a  [routerLink]="'/treinador/create'" class="btn btn-success col align-self-end" ><span>Adicionar Novo Treinador</span></a>				
                 </div>
+            </div>
+            <!-- <div class="input-group mt-2">
+                <input type="search" class="form-control" [(ngModel)]="filtroValue" placeholder="Buscar" ria-label="Search" aria-describedby="button-addon4">
+                <div class="input-group-append" id="button-addon4">
+                  <button class="btn btn-outline-success" type="button" (click)="buscaComFiltro()">Buscar</button>
+                  <button class="btn btn-outline-warning" type="button" (click)="resetarPagina()">Limpar</button>
+                </div>
+            </div> -->
+            <div class="input-group mt-2">
+                <input type="search" class="form-control" [(ngModel)]="filtroValue" placeholder="Buscar" ria-label="Search" aria-describedby="button-addon4">
+
             </div>
         </div>
         <div *ngIf="contador > 0">    
@@ -17,16 +31,18 @@
                 <thead>
                     <tr>
                         <th scope="col-1">Cod</th>
-                        <th scope="col-8">Nome</th>
-                        <th>RG</th>
-                        <th>Ações</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">RG</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let treinador of paginaLista.conteudo">
-                        <td scope="row">{{treinador.idTreinador}}</td>
-                        <td>{{treinador.nomeTreinador}}</td>
+                    <tr *ngFor="let treinador of paginaLista ">
+                        <th scope="row">{{treinador.id}}</th>
+                        <td>{{treinador.nomeTreinador | uppercase}}</td>
                         <td>{{treinador.rgTreinador}}</td>
+                        <td>{{treinador.statusTreinador}}</td>
                         <td>
                             <a (click)="atualizarTreinador(treinador)" class="edit mr-2" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                 <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
@@ -37,12 +53,12 @@
                         </td>
                     </tr>                   
                 </tbody>
-                <div class="col-md-12">
-                    <button type="button" (click)="buscaComFiltro(false)" disabled="paginaLista.paginaSelecionada === 0" class="btn btn-outline-info mr-2">Anterior</button>
-                    <button type="button" (click)="buscaComFiltro(true)" disabled="!paginaLista.proximaPagina" class="btn btn-outline-info mr-2">Próxima</button>
-                    <label>Registros 1 de 30</label>
-                </div>
             </table>
+            <div class="col-md-12 mt-4">
+                <button type="button" (click)="buscaComFiltro(false)"  class="btn btn-outline-info mr-2">Anterior</button>
+                <button type="button" (click)="buscaComFiltro(true)"  class="btn btn-outline-info mr-2">Próxima</button>
+                <label>Registros 1 de 30</label>
+            </div>
         </div>
 
         <div *ngIf="contador == 0">

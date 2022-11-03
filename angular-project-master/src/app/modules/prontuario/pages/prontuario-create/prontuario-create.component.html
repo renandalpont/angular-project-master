@@ -3,20 +3,20 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-8">
-                    <h2>Cadastro <b>Leitos</b></h2>
+                    <h2>Gerar <b>Prontuário</b></h2>
                 </div>
             </div>
         </div>
         <div class="container-xl">
             <form>
                 <div class="header">						
-                    <h4 class="title mt-4">Adicionar Leito</h4>
+                    <h4 class="title mt-4">Prontuário do Paciente</h4>
                 </div>
                 <div class="form-group">	
                     <div class="row">			
-                        <div class="col-4">
-                            <label>Leito Numero</label>
-                            <input type="number" name="numeroLeito" [(ngModel)]="leito.numeroLeito" class="form-control" required="">
+                        <div class="col-12">
+                            <label>Médico</label>
+                            <input type="string" name="nomeMedico" [(ngModel)]="prontuario.nomeMedico" class="form-control" required="">
                         </div>                                      				
                         <!-- <div class="col-4">
                             <label>Tipo de Leito</label>
@@ -28,17 +28,18 @@
                             </select>
                         </div> -->                       
                         
-                        <div class="col-4">
-                            <label>Leito Descrição</label>
-                            <input type="text" name="tipoLeito" [(ngModel)]="leito.tipoLeito" class="form-control" required="">
+                        <div class="col-12">
+                            <label>Descrição</label>
+                            <textarea rows="10" cols="50" type="textarea" name="descricaoProntuario" [(ngModel)]="prontuario.descricaoProntuario" class="form-control" required="">
+                            </textarea>
                         </div> 
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <label>Status do Leito</label>
                             <select class="form-select" name="statusLeito" [(ngModel)]="leito.statusLeito" aria-label="Tipo de Leito">
                                 <option value="DISPONIVEL">Disponível</option>
                                 <option value="OCUPADO">Ocupado</option>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                 </div>        
                     
